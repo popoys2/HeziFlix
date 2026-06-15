@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/player_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12161A">
+
+    <ImageView
+        android:id="@+id/detail_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.35"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:alpha="0.4"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:padding="32dp"
+        android:gravity="left">
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOADING TITLE..."
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="12dp"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/detail_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading overview content description matrix dynamically..."
+            android:textColor="#8A929A"
+            android:textSize="13sp"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/detail_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="----"
+                android:textColor="#8A929A"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginRight="16dp"/>
+
+            <TextView
+                android:id="@+id/detail_rating_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ 0.0"
+                android:textColor="#FFD700"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginRight="16dp"/>
+
+            <TextView
+                android:id="@+id/detail_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HD"
+                android:textColor="#FFFFFF"
+                android:background="#252B33"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textSize="10sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_watch_now"
+                android:layout_width="160dp"
+                android:layout_height="44dp"
+                android:text="WATCH NOW"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#12161A"
+                android:backgroundTint="#FFD700"
+                android:layout_marginRight="12dp"/>
+
+            <Button
+                android:id="@+id/btn_add_list"
+                android:layout_width="120dp"
+                android:layout_height="44dp"
+                android:text="WATCH LATER"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#252B33"/>
+
+        </LinearLayout>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

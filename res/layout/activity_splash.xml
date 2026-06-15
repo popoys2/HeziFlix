@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_glass_gradient">
+
+    <!-- The main UI wrapper acting as the primary Glass Panel -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="32dp"
+        android:gravity="center"
+        android:background="#0DFFFFFF"> 
+
+        <!-- Left Side: Branding -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_splash_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HEZIFLIX"
+                android:textColor="#FFFFFF"
+                android:textSize="46sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.3"
+                android:shadowColor="#80000000"
+                android:shadowRadius="10"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Free Access For All Users"
+                android:textColor="#B3FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Right Side: Secure Entry Controls -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingLeft="24dp">
+
+            <EditText
+                android:id="@+id/et_access_key"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_pill"
+                android:hint="Enter Access Key"
+                android:textColorHint="#80FFFFFF"
+                android:textColor="#FFFFFF"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="12dp"/>
+
+            <Button
+                android:id="@+id/btn_submit_key"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_button_pill"
+                android:text="SUBMIT"
+                android:textColor="#12161A"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"/>
+
+            <!-- ADDED: The missing reference for your Java code -->
+            <TextView
+                android:id="@+id/tv_forgot_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Forgot Access Key?"
+                android:textColor="#8A929A"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="6dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+

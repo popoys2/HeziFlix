@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12161A">
+
+    <ImageView
+        android:id="@+id/detail_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.25" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:alpha="0.4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="24dp">
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="6dp"
+                android:letterSpacing="0.02"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/detail_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="----"
+                    android:textColor="#8A929A"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="12dp"/>
+
+                <TextView
+                    android:id="@+id/detail_rating_stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ 0.0"
+                    android:textColor="#FFD700"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="12dp"/>
+
+                <TextView
+                    android:id="@+id/detail_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HD"
+                    android:textColor="#FFFFFF"
+                    android:background="#252B33"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:textSize="9sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading description details..."
+                android:textColor="#8A929A"
+                android:textSize="12sp"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_marginBottom="20dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_watch_now"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:text="WATCH NOW"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#12161A"
+                    android:backgroundTint="#FFD700"
+                    android:layout_marginRight="10dp"/>
+
+                <Button
+                    android:id="@+id/btn_add_list"
+                    android:layout_width="120dp"
+                    android:layout_height="42dp"
+                    android:text="WATCH LATER"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#252B33"/>
+
+                <Button
+                    android:id="@+id/btn_save_watchlater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:text="Save Watchlater"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#FFD700"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingRight="24dp"
+            android:paddingLeft="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MORE LIKE THIS"
+                android:textColor="#FFD700"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="12dp"/>
+
+            <ListView
+                android:id="@+id/lv_suggestions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0dp"
+                android:scrollbars="none"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+
