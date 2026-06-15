@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="day_background">#FFFFFF</color>
+    <color name="day_primary">#FFD700</color>
+    <color name="day_text">#111111</color>
+    <color name="day_surface">#F5F5F5</color>
+
+    <color name="dark_background">#000000</color>
+    <color name="dark_primary">#007BFF</color>
+    <color name="dark_text">#FFFFFF</color>
+    <color name="dark_surface">#1A1A1A</color>
+</resources>
