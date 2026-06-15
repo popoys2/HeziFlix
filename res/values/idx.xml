@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="view_hue_bar" type="id" />
+    <item name="view_brightness_bar" type="id" />
+</resources>
+
