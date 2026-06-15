@@ -61,7 +61,6 @@ public class PlayerActivity extends BaseActivity {
     private LinearLayout landscapeControlSidebar;
     private Spinner spinnerSeason;
     private Spinner spinnerEpisode;
-    private Spinner spinnerPlayerType; 
     private Button btnToggleSelectors;
 
     private String contentId;
@@ -72,9 +71,6 @@ public class PlayerActivity extends BaseActivity {
 
     private ArrayList<Integer> seasonList = new ArrayList<Integer>();
     private ArrayList<Integer> episodeList = new ArrayList<Integer>();
-    private String[] playerServers = { "Server 1", "Server 2", "Server 3" };
-    private int currentServerSelectionIndex = 0;
-
     private int selectedSeasonNum = 1;
     private int selectedEpisodeNum = 1;
     private JSONArray seasonsJsonArray = null;
@@ -272,11 +268,8 @@ public class PlayerActivity extends BaseActivity {
         playerWebView = (WebView) findViewById(R.id.trailer_webview);
         progressBar = (ProgressBar) findViewById(R.id.player_progress);
         selectorContainer = (LinearLayout) findViewById(R.id.selector_container);
-        landscapeControlSidebar = (LinearLayout) findViewById(R.id.landscape_control_sidebar);
         spinnerSeason = (Spinner) findViewById(R.id.spinner_season);
         spinnerEpisode = (Spinner) findViewById(R.id.spinner_episode);
-        spinnerPlayerType = (Spinner) findViewById(R.id.spinner_player_type);
-        btnToggleSelectors = (Button) findViewById(R.id.btn_toggle_selectors);
 
         WebSettings settings = playerWebView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -306,47 +299,19 @@ public class PlayerActivity extends BaseActivity {
             playerWebView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         }
 
-        ArrayAdapter<String> serverAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, playerServers);
-        serverAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerPlayerType.setAdapter(serverAdapter);
-
         // Default: hide selector UI so the WebView is visually fullscreen.
         if (selectorContainer != null) selectorContainer.setVisibility(View.GONE);
-        if (landscapeControlSidebar != null) landscapeControlSidebar.setVisibility(View.GONE);
 
         // Apply immersive fullscreen mode
         enableImmersiveFullscreen();
 
         if (isTvShow) {
-            selectorContainer.setVisibility(View.VISIBLE); // If TV, show selectors if you want — remove this to keep hidden by default
+            selectorContainer.setVisibility(View.VISIBLE);
             setupTvSpinners();
         } else {
             selectorContainer.setVisibility(View.GONE);
             updateVideoFrameUrl();
         }
-
-        btnToggleSelectors.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (landscapeControlSidebar.getVisibility() == View.VISIBLE) {
-                        landscapeControlSidebar.setVisibility(View.GONE);
-                    } else {
-                        landscapeControlSidebar.setVisibility(View.VISIBLE);
-                    }
-                    // Reapply immersive so system UI stays hidden after toggling
-                    enableImmersiveFullscreen();
-                }
-            });
-
-        spinnerPlayerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    currentServerSelectionIndex = position;
-                    updateVideoFrameUrl();
-                }
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {}
-            });
     }
 
     /**
@@ -444,21 +409,9 @@ public class PlayerActivity extends BaseActivity {
     private void updateVideoFrameUrl() {
         String embedUrl = "";
         if (isTvShow) {
-            if (currentServerSelectionIndex == 0) {
-                embedUrl = "https://vidfast.net/tv/" + contentId + "/" + selectedSeasonNum + "/" + selectedEpisodeNum;
-            } else if (currentServerSelectionIndex == 1) {
-                embedUrl = "https://vidsrc-embed.ru/embed/tv/" + contentId + "/" + selectedSeasonNum + "-" + selectedEpisodeNum;
-            } else {
-                embedUrl = "https://player.videasy.net/tv/" + contentId + "/" + selectedSeasonNum + "/" + selectedEpisodeNum;
-            }
+            embedUrl = "https://player.videasy.net/tv/" + contentId + "/" + selectedSeasonNum + "/" + selectedEpisodeNum;
         } else {
-            if (currentServerSelectionIndex == 0) {
-                embedUrl = "https://www.vidfast.net/movie/" + contentId;
-            } else if (currentServerSelectionIndex == 1) {
-                embedUrl = "https://vidsrc-embed.ru/embed/movie/" + contentId;
-            } else {
-                embedUrl = "https://player.videasy.net/movie/" + contentId;
-            }
+            embedUrl = "https://player.videasy.net/movie/" + contentId;
         }
         if (playerWebView != null) playerWebView.loadUrl(embedUrl);
     }
