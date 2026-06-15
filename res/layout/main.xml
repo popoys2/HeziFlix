@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/main_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/vibrant_background">
+
+	<!-- GLASS UI TOOLBAR OVERLAY -->
+	<RelativeLayout
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:background="#26FFFFFF"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp">
+
+		<TextView
+			android:id="@+id/app_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="HEZIFLIX"
+			android:textSize="18sp"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:letterSpacing="0.2"
+			android:layout_centerVertical="true"/>
+
+		<LinearLayout
+			android:id="@+id/type_switcher_container"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_centerInParent="true"
+			android:gravity="center">
+
+			<Button
+				android:id="@+id/btn_type_movies"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="Movies"
+				android:textSize="12sp"
+				android:textColor="#CCFFFFFF"
+				android:background="@drawable/glass_panel"
+				android:textAllCaps="false"
+				android:layout_marginRight="16dp"/>
+
+			<Button
+				android:id="@+id/btn_type_series"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="TV Series"
+				android:textSize="12sp"
+				android:textColor="#FFFFFF"
+				android:background="@drawable/glass_panel_active"
+				android:textAllCaps="false"
+				android:layout_marginRight="16dp"/>
+
+			<Button
+				android:id="@+id/btn_hamburger"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="My Media"
+				android:textSize="12sp"
+				android:textColor="#CCFFFFFF"
+				android:background="@drawable/glass_panel"
+				android:textAllCaps="false"
+				android:layout_marginRight="16dp"/>
+
+			<Button
+				android:id="@+id/btn_search_toggle"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="Search"
+				android:textSize="12sp"
+				android:textColor="#CCFFFFFF"
+				android:background="@drawable/glass_panel"
+				android:textAllCaps="false"
+				android:layout_marginRight="16dp"/>
+
+			<Button
+				android:id="@+id/btn_watch_later_toggle"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="Watch Later"
+				android:textSize="12sp"
+				android:textColor="#CCFFFFFF"
+				android:background="@drawable/glass_panel"
+				android:textAllCaps="false"
+				android:layout_marginRight="16dp"/>
+
+			<Button
+				android:id="@+id/btn_watch_history_toggle"
+				android:layout_width="wrap_content"
+				android:layout_height="32dp"
+				android:text="History"
+				android:textSize="12sp"
+				android:textColor="#CCFFFFFF"
+				android:background="@drawable/glass_panel"
+				android:textAllCaps="false"/>
+
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/btn_theme_toggle"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:text="🎨"
+			android:textSize="14sp"
+			android:textColor="#FFFFFF"
+			android:background="@drawable/glass_panel"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"/>
+
+	</RelativeLayout>
+
+	<!-- TRANSLUCENT GLASS SEARCH LAYER -->
+	<LinearLayout
+		android:id="@+id/search_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/toolbar"
+		android:orientation="horizontal"
+		android:padding="8dp"
+		android:visibility="gone"
+		android:background="#33FFFFFF"
+		android:elevation="6dp">
+
+		<EditText
+			android:id="@+id/et_search"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:hint="Search title library catalog..."
+			android:textColor="#FFFFFF"
+			android:textColorHint="#B3FFFFFF"
+			android:singleLine="true"
+			android:background="@null"
+			android:padding="6dp"
+			android:textSize="13sp"/>
+
+		<Button
+			android:id="@+id/btn_search_submit"
+			android:layout_width="wrap_content"
+			android:layout_height="32dp"
+			android:text="Go"
+			android:textSize="12sp"
+			android:textColor="#FFFFFF"
+			android:background="@drawable/glass_panel_active"/>
+
+	</LinearLayout>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/toolbar"
+		android:fillViewport="true"
+		android:scrollbars="none">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:paddingLeft="12dp"
+			android:paddingRight="12dp"
+			android:paddingTop="8dp"
+			android:paddingBottom="8dp">
+
+			<TextView
+				android:id="@+id/tv_section_main_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="TV Series"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:textColor="#FFFFFF"
+				android:layout_marginBottom="6dp"/>
+
+			<HorizontalScrollView
+				android:id="@+id/category_scroll"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="8dp"
+				android:scrollbars="none">
+
+				<LinearLayout
+					android:id="@+id/category_buttons_container"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"/>
+
+			</HorizontalScrollView>
+
+			<!-- Padding configuration to avoid glass highlights truncation -->
+			<GridView
+				android:id="@+id/movie_grid"
+				android:layout_width="match_parent"
+				android:layout_height="360dp"
+				android:numColumns="4"
+				android:verticalSpacing="14dp"
+				android:horizontalSpacing="14dp"
+				android:stretchMode="columnWidth"
+				android:padding="4dp"
+				android:clipToPadding="false"
+				android:nestedScrollingEnabled="true"/>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<!-- NAVIGATION DRAWER BACKDROP -->
+	<LinearLayout
+		android:id="@+id/nav_drawer"
+		android:layout_width="240dp"
+		android:layout_height="match_parent"
+		android:layout_below="@id/toolbar"
+		android:background="#4D0F111A"
+		android:orientation="vertical"
+		android:padding="20dp"
+		android:visibility="gone"
+		android:elevation="16dp"
+		android:clickable="true">
+
+		<TextView
+			android:id="@+id/tv_drawer_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Need help? Contact Me!"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:textColor="#FFFFFF"
+			android:layout_marginBottom="14dp"/>
+
+		<Button
+			android:id="@+id/btn_fb"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:text="Facebook"
+			android:textSize="12sp"
+			android:background="@drawable/glass_panel"
+			android:textColor="#FFFFFF"
+			android:layout_marginBottom="6dp"/>
+
+		<Button
+			android:id="@+id/btn_insta"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:text="Instagram"
+			android:textSize="12sp"
+			android:background="@drawable/glass_panel"
+			android:textColor="#FFFFFF"
+			android:layout_marginBottom="6dp"/>
+
+		<Button
+			android:id="@+id/btn_tiktok"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:text="TikTok"
+			android:textSize="12sp"
+			android:background="@drawable/glass_panel"
+			android:textColor="#FFFFFF"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
