@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 15% Translucent Frosted White Glass Core -->
+    <solid android:color="#26FFFFFF"/>
+    <!-- Thin Translucent White Edge Highlight catching ambient light -->
+    <stroke 
+        android:width="1.2dp" 
+        android:color="#4DFFFFFF"/>
+    <corners android:radius="8dp"/>
+</shape>
+
